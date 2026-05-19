@@ -151,7 +151,7 @@ def launch_training(task_id: str, args: TrainConfig | None = None):
   log_dir_name = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
   if args.agent.run_name:
     log_dir_name += f"_{args.agent.run_name}"
-  log_dir = log_root_path / log_dir_name
+  log_dir = log_root_path 
 
   # Select GPUs based on CUDA_VISIBLE_DEVICES and user specification.
   selected_gpus, num_gpus = select_gpus(args.gpu_ids)
