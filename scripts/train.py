@@ -1,7 +1,9 @@
 """Script to train RL agent with RSL-RL."""
 
-import logging
 import os
+os.environ["MUJOCO_GL"] = "egl"
+
+import logging
 import sys
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
@@ -161,7 +163,6 @@ def launch_training(task_id: str, args: TrainConfig | None = None):
     os.environ["CUDA_VISIBLE_DEVICES"] = ""
   else:
     os.environ["CUDA_VISIBLE_DEVICES"] = ",".join(map(str, selected_gpus))
-  os.environ["MUJOCO_GL"] = "egl"
 
   if num_gpus <= 1:
     # CPU or single GPU: run directly without torchrunx.
