@@ -1,7 +1,9 @@
 """Script to train RL agent with RSL-RL."""
 
 import os
-os.environ["MUJOCO_GL"] = "egl"
+import platform
+if platform.system() != "Windows":
+    os.environ["MUJOCO_GL"] = "egl"
 
 import logging
 import sys
